@@ -1,0 +1,955 @@
+/* VARIABLES */
+
+:root {
+  --color-primary: #ce2829;
+  --color-secondary: #fdc913;
+  --color-dark: #171717;
+  --color-white: #ffffff;
+  --color-text: #292929;
+  --color-text-light: #5f5f5f;
+  --font-logo: "Quattrocento", serif;
+  --font-heading: "Roboto Condensed", sans-serif;
+  --font-script: "Satisfy", cursive;
+  --font-body: "Barlow", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* HERO BANNER */
+
+.hero-banner {
+  position: relative;
+  background-color: var(--color-primary);
+  height: 360px;
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px 150px;
+  margin-top: 0;
+  overflow: hidden;
+}
+
+/* Background Pattern */
+.hero-background-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.pattern-shape {
+  position: absolute;
+  object-fit: contain;
+  opacity: 1;
+  filter: brightness(0) invert(1);
+}
+
+.pattern-shape-1 {
+  width: 480px;
+  bottom: -60px;
+  left: 0;
+}
+
+.pattern-shape-2 {
+  width: 500px;
+  height: 528px;
+  top: -20px;
+  right: -75px;
+}
+
+/* Floating Decorative Elements (div.png) */
+.hero-decorative-elements {
+  position: absolute;
+  top: 0;
+  height: 630px;
+  width: 1300px;
+  z-index: 2;
+  pointer-events: none;
+  object-fit: contain;
+  opacity: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: var(--color-white);
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-home-banner {
+  width: 1030px;
+  height: 335px;
+  margin-top: 10px;
+  object-fit: contain;
+}
+
+.hero-logo {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 35px;
+}
+
+.hero-tagline {
+  font-family: var(--font-script);
+  font-size: 1rem;
+  color: var(--color-secondary);
+  font-weight: 300;
+  line-height: 2rem;
+}
+
+.hero-slogan-line1 {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 300;
+  margin: 10px 0;
+  line-height: 0.7;
+}
+
+.hero-slogan-line2 {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 300;
+  margin: 10px 0 30px;
+  line-height: 0.4;
+}
+
+.hero-cta-button {
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+  border: none;
+  border-radius: 30px;
+  padding: 15px 45px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 3;
+  position: relative;
+}
+
+.hero-cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(253, 201, 19, 0.4);
+}
+
+.hero-pizza-image {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+}
+
+.pizza-main-image {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* CATEGORY NAVIGATION */
+
+.category-nav {
+  background-color: var(--color-white);
+  padding: 10px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.category-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1030px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: row;
+  margin-right: 60px;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  color: var(--color-text);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.category-item:hover {
+  opacity: 0.8;
+}
+
+.category-item.active {
+  opacity: 1;
+}
+
+.category-item .category-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* FEATURED OFFERS */
+
+.featured-offers {
+  background-color: #faf7f2;
+  padding: 40px 0;
+}
+
+/* Sol büyük kart + sağdaki kartlar */
+.offers-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Ortak kart yapısı */
+.offer-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* --- Sol: Büyük Kırmızı Kart --- */
+.offer-card-large {
+  background-color: var(--color-primary);
+  min-height: 260px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 40px;
+}
+
+/* Pizza görseli:
+     - Küçük dilim: sol alt 
+     - Büyük dilim: sağ tarafı  */
+.offer-card-large .offer-image {
+  position: absolute;
+  left: -3%;
+  bottom: 0;
+  width: 110%;
+  height: auto;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.offer-card-large .offer-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  max-width: 100%;
+  top: -50px;
+  font-family: "Quattrocento", sans-serif;
+  line-height: 1.5rem;
+}
+
+.offer-title {
+  font-family: var(--font-logo);
+  font-size: 42px;
+  line-height: 2rem;
+  margin-bottom: 12px;
+  font-weight: lighter;
+}
+
+.offer-description {
+  margin-bottom: 18px;
+  opacity: 0.9;
+  font-size: 15px;
+}
+
+.offer-button {
+  background: #ffffff;
+  color: var(--color-primary);
+  border: none;
+  border-radius: 999px;
+  padding: 8px 22px;
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* --- Sağ: Küçük Kartlar --- */
+.offers-secondary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Ortak küçük kart */
+.offer-card-small {
+  width: 100%;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.offer-title-small {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.offer-title-small .red-text {
+  color: var(--color-primary);
+}
+
+/* HACKATHON BURGER KARTI */
+
+.offer-card-burger {
+  width: 100%;
+  height: 140px;
+  border-radius: 20px;
+  background: #292929;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 5px;
+  position: relative;
+}
+
+.offer-card-burger .offer-content {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  gap: 10px;
+}
+
+.offer-card-burger .offer-title-small {
+  color: #ffffff;
+}
+
+.offer-card-burger .offer-button {
+  background: #ffffff;
+  color: var(--color-primary);
+}
+
+.offer-card-burger .offer-burger-image {
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.offer-card-burger .offer-burger-image img {
+  height: 100px;
+  width: auto;
+  display: block;
+}
+
+/* NPM KURYE KARTI*/
+
+.offer-card-npm {
+  width: 100%;
+  height: 180px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Arka plan (şehir – yol) */
+.offer-card-npm .offer-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.offer-card-npm .offer-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Yazılar + buton */
+.offer-card-npm .offer-content {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Kurye illustrasyon */
+.offer-card-npm .courier-image {
+  position: absolute;
+  right: 60px;
+  bottom: 0;
+  width: 35%;
+  max-width: 200px;
+  z-index: 4;
+}
+
+.offer-card-npm .courier-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* POPULAR MENUS */
+
+.popular-menus {
+  background-color: #faf7f2;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.popular-menus-header {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+
+.popular-subtitle {
+  font-family: var(--font-script);
+  color: var(--color-primary);
+  font-size: 24px;
+  margin: 0 0 10px;
+}
+
+.popular-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.category-nav-second {
+  max-width: 1000px;
+  margin: 0 auto 50px;
+  padding: 20px 0;
+}
+
+.category-list-second {
+  list-style: none;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+}
+
+.category-item-second {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background-color: var(--color-white);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-text);
+  border: 2px solid transparent;
+}
+
+.category-item-second:hover {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  border: 2px solid var(--color-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-items-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 30px;
+}
+
+.menu-item-card {
+  background-color: var(--color-white);
+  border-radius: 12px;
+  margin-top: 30px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.menu-item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.menu-item-image {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+}
+
+.menu-item-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 15px 20px 10px;
+}
+
+.menu-item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.menu-item-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--color-text-light) !important;
+}
+
+.rating-value {
+  /* font-family: var(--color-text-light); */
+  font-weight: 400;
+}
+
+.rating-count {
+  /* font-family: var(--color-text-light); */
+  font-size: 14px;
+  margin-left: 120px;
+  font-weight: 400;
+}
+
+.menu-item-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+/* FOOTER */
+
+.footer {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding: 60px 20px 20px;
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contact-text {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-menu-title,
+.footer-instagram-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 20px;
+}
+
+.footer-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-menu-list li {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-menu-list li:hover {
+  color: var(--color-white);
+}
+
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.instagram-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.instagram-image:hover {
+  transform: scale(1.05);
+}
+
+.footer-bottom {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-copyright {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: var(--color-white);
+}
+
+/* RESPONSIVE DESIGN  */
+
+/* Mobile */
+@media (max-width: 768px) {
+  /* HERO BANNER */
+
+  .hero-banner {
+    position: relative;
+    padding: 24px 16px 140px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: hidden;
+    min-height: 465px;
+  }
+
+  .hero-decorative-elements,
+  .hero-tagline {
+    display: none;
+  }
+
+  .hero-background-pattern {
+    display: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 300px;
+    max-width: 220px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .hero-logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 24px;
+  }
+
+  .hero-slogan-line1,
+  .hero-slogan-line2 {
+    font-size: 2.8rem;
+    line-height: 1.05;
+    letter-spacing: 0.08em;
+    margin: 4px 0;
+    display: block;
+    text-align: center;
+    font-weight: lighter;
+  }
+
+  .hero-cta-button {
+    margin-top: 18px;
+    padding: 10px 32px;
+    font-size: 0.9rem;
+  }
+
+  .hero-home-banner {
+    position: absolute;
+    bottom: -285px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: auto;
+    width: 320%;
+    max-width: none;
+    z-index: 1;
+    display: block;
+  }
+
+  /* CATEGORY NAV (üstteki) */
+
+  .category-nav {
+    margin: 16px 0 0;
+    padding: 0 16px;
+  }
+
+  .category-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 9.4em)) !important;
+    gap: 12px;
+  }
+
+  .category-item {
+    font-size: 11px;
+    display: flex;
+    white-space: nowrap;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    padding: 8px 4px;
+  }
+
+  .category-item .category-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 4px;
+  }
+  .category-item:hover {
+    opacity: 0.5;
+  }
+
+  /* FEATURED OFFERS (3 kart) */
+
+  .featured-offers {
+    margin-top: 24px;
+    padding: 0 16px;
+  }
+
+  .offers-container {
+    max-width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* kartlar alt alta */
+    gap: 16px;
+  }
+
+  .offer-card,
+  .offer-card-small,
+  .offer-card-large {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Büyük kart (Özel Lezzetus) */
+  .offer-card-large {
+    order: 1;
+  }
+
+  .offer-card-large .offer-image {
+    width: 510px;
+    height: auto;
+    display: block;
+  }
+
+  /* Küçük kartlar (Hackathon + npm kurye) */
+  .offers-secondary {
+    order: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .offer-card-small {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 16px;
+  }
+
+  .offer-card-burger .offer-burger-image img {
+    max-width: 110px;
+    height: auto;
+  }
+
+  .offer-card-npm .courier-image img {
+    max-width: 120px;
+    height: auto;
+  }
+
+  .offer-title {
+    font-size: 30px;
+    line-height: 1;
+  }
+
+  .offer-title-small {
+    font-size: 15px;
+    line-height: 2;
+  }
+
+  .offer-button {
+    padding: 8px 14px;
+    font-size: 0.75rem;
+  }
+
+  /* POPULAR MENUS + 2. NAV */
+
+  .popular-menus {
+    padding: 32px 16px 40px;
+  }
+
+  .popular-menus-header {
+    text-align: center;
+  }
+
+  .popular-subtitle {
+    font-size: 34px;
+  }
+
+  .popular-title {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 10px;
+  }
+  .popular-title span {
+    display: block;
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 4px 0;
+  }
+
+  .category-nav-second {
+    margin: 16px 0 0;
+    padding: 0 16px;
+  }
+
+  .category-list-second {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 140px)) !important;
+    gap: 12px;
+  }
+
+  .category-item-second {
+    font-size: 11px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    gap: 5px !important;
+  }
+
+  .category-item-second .category-icon {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 4px;
+  }
+
+  .menu-items-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .menu-item-card {
+    width: 100%;
+  }
+
+  /* FOOTER */
+
+  .footer {
+    padding: 40px 16px 16px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .instagram-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .footer-bottom {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+  }
+}

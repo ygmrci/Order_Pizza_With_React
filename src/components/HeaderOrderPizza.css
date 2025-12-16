@@ -1,0 +1,37 @@
+.navOrderPizza {
+  background-color: #ce2829;
+  height: 150px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.logo img {
+  width: 200px;
+  margin-bottom: 12px;
+}
+
+.category {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.category a {
+  color: white;
+  text-decoration: none;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.category a:hover {
+  text-decoration: underline;
+}
+.category a.active {
+  font-weight: 700;
+  text-decoration: underline;
+  opacity: 1;
+}
