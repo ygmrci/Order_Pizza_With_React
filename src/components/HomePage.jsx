@@ -1,6 +1,9 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import CategoryNav from "./CategoryNav";
+import OfferSection from "./OfferSection";
+import PopularMenus from "./PopularMenus";
+import Footer from "./Footer";
 
 const HomePage = () => {
   const history = useHistory();
@@ -56,6 +59,9 @@ const HomePage = () => {
       </section>
 
       <CategoryNav />
+      <OfferSection />
+      <PopularMenus/>
+      <Footer/>
     </div>
   );
 };

@@ -1,0 +1,91 @@
+.summary-area {
+  display: contents;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* sayaç kutusu */
+.qty-box {
+  display: flex;
+  width: 160px;
+  height: 44px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #faf7f2;
+  border: 1px solid #e5e5e5;
+}
+
+.qty-btn {
+  width: 48px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #fdc913;
+}
+.qty-btn:hover{
+  transform: translateY(-1px);
+}
+
+.qty-value {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-left: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
+}
+
+/* sipariş toplamı kartı */
+.summary-card {
+  width: 320px;
+  border: #e5e5e5;
+  background: #faf7f2;
+  border-radius: 6px;
+  padding: 20px 22px;
+}
+
+.summary-title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 14px;
+  color: #292929;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #5f5f5f;
+  margin-bottom: 10px;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.summary-total b {
+  color: #ce2829; /* figmada Toplam kırmızı */
+}
+
+/* buton */
+.order-submit {
+  width: 320px;
+  height: 44px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #fdc913;
+  color: #292929;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.order-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

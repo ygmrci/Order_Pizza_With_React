@@ -12,9 +12,13 @@ function App() {
       <Route exact path="/" component={HomePage} />
       <Route exact path="/home" component={HomePage} />
 
-      <Route path="/order" render={() => <OrderPizza setOrder={setOrder} />} />
+      <Route path="/order">
+        <OrderPizza setOrder={setOrder} order={order} />
+      </Route>
 
-      <Route path="/success" render={() => <Success order={order} />} />
+      <Route path="/success">
+        <Success order={order} />
+      </Route>
     </Switch>
   );
 }
