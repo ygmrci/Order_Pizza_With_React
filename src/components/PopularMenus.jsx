@@ -1,6 +1,11 @@
 import React from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const PopularMenus = () => {
+  const history = useHistory();
+  const goOrder = (productName) => {
+    history.push("/order", { productName }); //
+  };
   return (
     <div>
       <section className="popular-menus">
@@ -29,7 +34,7 @@ const PopularMenus = () => {
             </li>
             <li className="category-item-second">
               <img
-                src="assets/main/4.png"
+                src="/main/4.png"
                 alt="French fries"
                 className="category-icon"
               />
@@ -56,7 +61,10 @@ const PopularMenus = () => {
 
         {/* <!-- Menu Items Grid --> */}
         <div className="menu-items-grid">
-          <div className="menu-item-card">
+          <div
+            className="menu-item-card"
+            onClick={() => goOrder("Terminal Pizza")}
+          >
             <img
               src="/main/food-1.png"
               alt="Termina Pizza"
@@ -75,7 +83,10 @@ const PopularMenus = () => {
             </div>
           </div>
 
-          <div className="menu-item-card">
+          <div
+            className="menu-item-card"
+            onClick={() => goOrder("Position Absolute Acı Pizza")}
+          >
             <img
               src="/main/food-2.png"
               alt="Pendiklin Simsalabim Pizza"
@@ -94,7 +105,10 @@ const PopularMenus = () => {
             </div>
           </div>
 
-          <div className="menu-item-card">
+          <div
+            className="menu-item-card"
+            onClick={() => goOrder("useEffect Tavuklu Burger")}
+          >
             <img
               src="/main/food-3.png"
               alt="useEffect Tavuklu Burger"

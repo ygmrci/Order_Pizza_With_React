@@ -20,6 +20,17 @@ describe("Pizza Order Form", () => {
 
     cy.get('[data-cy="submit-button"]').should("be.disabled");
   });
+  it("breadcrumb Anasayfa  tıklanınca home'a gider", () => {
+    cy.get('[data-cy="breadcrumb-home"]').click();
+    cy.url().should("eq", Cypress.config().baseUrl + "/");
+  });
+  it("home'dan pizza kartına tıklanınca order sayfasında ürün adı görünür", () => {
+  cy.visit("/");
+  cy.contains("Terminal Pizza").click();
+  cy.url().should("include", "/order");
+  cy.contains("Terminal Pizza"); 
+});
+
 
   it("doğru doldurunca success'e gider", () => {
     cy.get('[data-cy="name-input"]').type("Sinem");

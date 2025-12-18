@@ -26,7 +26,7 @@ const Footer = () => {
               </div>
               <div className="contact-item">
                 <img
-                  src="assets/icons/icon-2.png"
+                  src="/icons/icon-2.png"
                   alt="E-posta"
                   className="contact-icon"
                 />
@@ -34,7 +34,7 @@ const Footer = () => {
               </div>
               <div className="contact-item">
                 <img
-                  src="assets/icons/icon-3.png"
+                  src="/icons/icon-3.png"
                   alt="Telefon"
                   className="contact-icon"
                 />

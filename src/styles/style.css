@@ -10,13 +10,15 @@
   --font-logo: "Quattrocento", serif;
   --font-heading: "Roboto Condensed", sans-serif;
   --font-script: "Satisfy", cursive;
-  --font-body: "Barlow", sans-serif;
+  --font-title: "Roboto Condensed", sans-serif;
+  --font-ui: "Barlow", sans-serif;
+  --font-text: "Quattrocento", serif;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: var(--font-body);
+  font-family: var(--font-text);
   color: var(--color-text);
   line-height: 1.6;
   overflow-x: hidden;
@@ -27,7 +29,7 @@ body {
 .hero-banner {
   position: relative;
   background-color: var(--color-primary);
-  height: 360px;
+  height: 650px;
   width: auto;
   display: flex;
   align-items: flex-start;
@@ -152,7 +154,7 @@ body {
 
 .hero-pizza-image {
   position: absolute;
-  bottom: -40px;
+  bottom: -20px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
@@ -164,7 +166,7 @@ body {
 
 .pizza-main-image {
   width: 100%;
-  max-width: 650px;
+  max-width: 790px;
   height: auto;
   object-fit: contain;
 }
@@ -501,6 +503,8 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
 .menu-item-card:hover {
@@ -512,6 +516,7 @@ body {
   width: 100%;
   height: 250px;
   object-fit: contain;
+  pointer-events: none;
 }
 
 .menu-item-title {
@@ -545,7 +550,6 @@ body {
 .rating-count {
   /* font-family: var(--color-text-light); */
   font-size: 14px;
-  margin-left: 120px;
   font-weight: 400;
 }
 

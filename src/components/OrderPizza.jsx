@@ -4,13 +4,17 @@ import axios from "axios";
 import "./OrderPizza.css";
 import MainOrderPizza from "../components/MainOrderPizza";
 import OrderSummary from "../components/OrderSummary";
-import HeaderOrderPizza from "./HeaderOrderPizza";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const BASE_PRICE = 85.5;
 const TOPPING_PRICE = 5;
 
 export default function OrderPizza({ setOrder }) {
   const history = useHistory();
+  const location = useLocation();
+  const productName =
+    location.state?.productName || "Position Absolute Acı Pizza";
 
   const [form, setForm] = useState({
     name: "",
@@ -100,7 +104,9 @@ export default function OrderPizza({ setOrder }) {
 
         {/* 1) breadcrumb */}
         <div className="order-breadcrumb">
-          <span>Anasayfa - </span>
+          <Link to="/" className="crumb-link" data-cy="breadcrumb-home">
+            Anasayfa -
+          </Link>
           <span>Seçenekler - </span>
           <span className="crumb-active">Sipariş Oluştur</span>
         </div>
@@ -108,7 +114,7 @@ export default function OrderPizza({ setOrder }) {
         <hr className="divider" />
 
         {/* 2) product title (sola yaslı) */}
-        <h2 className="product-title">Position Absolute Acı Pizza</h2>
+        <h2 className="product-title">{productName}</h2>
 
         <hr className="divider" />
 

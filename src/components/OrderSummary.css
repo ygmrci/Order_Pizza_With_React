@@ -1,6 +1,6 @@
 .summary-area {
-  display: contents;
-  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
   gap: 24px;
   align-items: flex-start;
 }
@@ -24,7 +24,7 @@
   cursor: pointer;
   background-color: #fdc913;
 }
-.qty-btn:hover{
+.qty-btn:hover {
   transform: translateY(-1px);
 }
 
@@ -88,4 +88,12 @@
 .order-submit:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+@media (max-width: 900px) {
+  .qty-btn {
+    font-size: 26px;
+  }
+  .qty-value {
+    width: 35px;
+  }
 }

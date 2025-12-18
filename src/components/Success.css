@@ -1,0 +1,118 @@
+.success-page {
+  min-height: 100vh;
+  background: #ce2829;
+  color: #ffffff;
+}
+
+.success-top {
+  padding: 40px 16px 10px;
+  text-align: center;
+}
+
+.success-brand {
+  font-family: var(--font-title);
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.success-content {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 10px 16px 60px;
+  text-align: center;
+}
+
+.success-subtitle {
+  font-family: var(--font-script);
+  margin-top: 24px;
+  color: #fdc913;
+  font-size: 18px;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.success-title {
+  font-family: var(--font-title);
+  margin-top: 10px;
+  font-size: 72px;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+
+.success-line {
+  width: 55%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.55);
+  margin: 26px auto;
+}
+
+.success-product {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 22px;
+}
+
+.success-details {
+  font-family: var(--font-text);
+  max-width: 320px;
+  margin: 0 auto 34px;
+  text-align: left;
+  font-size: 13px;
+  display: grid;
+  gap: 10px;
+}
+
+.success-details b {
+  font-weight: 700;
+}
+
+.success-toppings b {
+  display: inline-block;
+  margin-top: 6px;
+}
+
+.success-summary {
+  width: 300px;
+  margin: 0 auto;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  padding: 22px 24px;
+}
+
+.success-summary-title {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.success-summary-row {
+  font-family: var(--font-ui);
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.success-actions {
+  margin-top: 26px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.success-actions button {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.success-actions button:hover {
+  border-color: rgba(255, 255, 255, 0.85);
+  background-color: #fdc913;
+  color:black;
+}

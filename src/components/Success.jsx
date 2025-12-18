@@ -1,5 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import "./Success.css";
+
+const TOPPING_PRICE = 5;
 
 export default function Success({ order }) {
   const history = useHistory();
@@ -13,42 +16,59 @@ export default function Success({ order }) {
     );
   }
 
+  const selectionsTotal = (order.malzemeler?.length || 0) * TOPPING_PRICE;
+
+  const total =
+    typeof order.toplam === "number" ? order.toplam : selectionsTotal;
+
+  const toppingsText = (order.malzemeler || []).join(", ");
+
   return (
-    <div style={{ padding: 24, maxWidth: 720, margin: "0 auto" }}>
-      <h1 style={{ display: "flex", gap: 12, alignItems: "center" }}>
-        Sipariş Alındı ✅
-      </h1>
-
-      <div style={{ border: "1px solid #ddd", borderRadius: 12, padding: 16 }}>
-        <p>
-          <b>Sipariş No:</b> {order.id}
-        </p>
-        <p>
-          <b>İsim:</b> {order.isim}
-        </p>
-        <p>
-          <b>Boyut:</b> {order.boyut}
-        </p>
-        <p>
-          <b>Not:</b> {order.ozel || "-"}
-        </p>
-        <p>
-          <b>Tarih:</b> {order.createdAt}
-        </p>
-
-        <div style={{ marginTop: 12 }}>
-          <b>Malzemeler ({order.malzemeler?.length || 0})</b>
-          <ul>
-            {(order.malzemeler || []).map((m) => (
-              <li key={m}>{m}</li>
-            ))}
-          </ul>
-        </div>
+    <div className="success-page">
+      <div className="success-top">
+        <img src="/home/logo.png" />
       </div>
 
-      <div style={{ marginTop: 16, display: "flex", gap: 12 }}>
-        <button onClick={() => history.push("/order")}>Yeni Sipariş Ver</button>
-        <button onClick={() => history.push("/")}>Ana Sayfa</button>
+      <div className="success-content">
+        <div className="success-subtitle">lezzetin yolda</div>
+        <div className="success-title">SİPARİŞ ALINDI</div>
+
+        <div className="success-line" />
+
+        <div className="success-product">Position Absolute Acı Pizza</div>
+
+        <div className="success-details">
+          <div>
+            Boyut: <b>{order.boyut}</b>
+          </div>
+          <div>
+            Hamur: <b>{order.hamur}</b>
+          </div>
+          <div className="success-toppings">
+            Ek Malzemeler: <b>{toppingsText || "-"}</b>
+          </div>
+        </div>
+
+        <div className="success-summary">
+          <div className="success-summary-title">Sipariş Toplamı</div>
+
+          <div className="success-summary-row">
+            <span>Seçimler</span>
+            <b>{selectionsTotal.toFixed(2)}₺</b>
+          </div>
+
+          <div className="success-summary-row">
+            <span>Toplam</span>
+            <b>{total.toFixed(2)}₺</b>
+          </div>
+        </div>
+
+        <div className="success-actions">
+          <button onClick={() => history.push("/order")}>
+            Yeni Sipariş Ver
+          </button>
+          <button onClick={() => history.push("/")}>Ana Sayfa</button>
+        </div>
       </div>
     </div>
   );
