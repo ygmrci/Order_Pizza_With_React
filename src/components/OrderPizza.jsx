@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import "./OrderPizza.css";
+import "../styles/OrderPizza.css";
 import MainOrderPizza from "../components/MainOrderPizza";
 import OrderSummary from "../components/OrderSummary";
 import { Link } from "react-router-dom";
@@ -51,32 +51,23 @@ export default function OrderPizza({ setOrder }) {
 
     setLoading(true);
     try {
-      const res = await axios.post(
-        "https://reqres.in/api/pizza",
-        {
-          isim: form.name,
-          boyut: form.size,
-          hamur: form.dough,
-          malzemeler: form.toppings,
-          ozel: form.note,
-          adet: quantity,
-          toplam: total,
-        },
-        { headers: { "x-api-key": "reqres-free-v1" } }
-      );
-
-      console.log("API response:", res.data);
-      console.log("Order summary:", {
+      const payload = {
+        urunAdi: productName,
         isim: form.name,
         boyut: form.size,
         hamur: form.dough,
         malzemeler: form.toppings,
+        ozel: form.note,
         adet: quantity,
         toplam: total,
+      };
+
+      await axios.post("https://reqres.in/api/pizza", payload, {
+        headers: { "x-api-key": "reqres-free-v1" },
       });
 
-      setOrder(res.data);
-      history.push("/success");
+      setOrder(payload); 
+      history.push("/success"); 
     } catch (e) {
       console.error(e);
       alert("İstek başarısız.");
@@ -104,7 +95,7 @@ export default function OrderPizza({ setOrder }) {
 
         {/* 1) breadcrumb */}
         <div className="order-breadcrumb">
-          <Link to="/" className="crumb-link" data-cy="breadcrumb-home">
+          <Link to="/home" className="crumb-link" data-cy="breadcrumb-home">
             Anasayfa -
           </Link>
           <span>Seçenekler - </span>

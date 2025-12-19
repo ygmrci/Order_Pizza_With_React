@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./HeaderOrderPizza.css";
+import "../styles/HeaderOrderPizza.css";
 
 const HeaderOrderPizza = () => {
   return (
@@ -10,7 +10,12 @@ const HeaderOrderPizza = () => {
       </div>
 
       <nav className="category">
-        <NavLink to="/home" activeClassName="active" exact>
+        <NavLink
+          to="/home"
+          exact
+          activeClassName="active"
+          data-cy="breadcrumb-home"
+        >
           Ana Sayfa
         </NavLink>
         <span>/</span>

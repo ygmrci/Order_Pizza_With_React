@@ -162,6 +162,9 @@ textarea {
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
+  .order-page{
+    width: 100%;
+  }
   .order-hero-pizza {
     width: 280px;
     top: 0px;
@@ -173,5 +176,12 @@ textarea {
 
   .order-grid {
     grid-template-columns: 1fr;
+  }
+  .order-container{
+    width: 100%;
+    margin: 30px auto;
+  }
+  .order-hero-pizza{
+    display: none;
   }
 }

@@ -91,9 +91,26 @@
 }
 @media (max-width: 900px) {
   .qty-btn {
-    font-size: 26px;
+    font-size: 20px;
   }
   .qty-value {
     width: 35px;
+  }
+  .summary-area {
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
+  .qty-box {
+    flex: 0 0 140px;
+    margin-top: 27%;
+  }
+  .summary-card {
+    flex: 1 1 auto;
+    min-width: 300px;
+    width: auto;
+  }
+
+  .order-submit {
+    width: 100%;
   }
 }

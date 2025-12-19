@@ -63,6 +63,7 @@ const PopularMenus = () => {
         <div className="menu-items-grid">
           <div
             className="menu-item-card"
+            data-cy="product-terminal-pizza"
             onClick={() => goOrder("Terminal Pizza")}
           >
             <img

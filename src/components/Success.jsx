@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import "./Success.css";
+import "../styles/Success.css";
 
 const TOPPING_PRICE = 5;
 
@@ -35,7 +35,9 @@ export default function Success({ order }) {
 
         <div className="success-line" />
 
-        <div className="success-product">Position Absolute Acı Pizza</div>
+        <h3 className="success-product">
+          {order.urunAdi || "Position Absolute Acı Pizza"}
+        </h3>
 
         <div className="success-details">
           <div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, FormGroup, Label, Input, FormFeedback } from "reactstrap";
-import "./MainOrderPizza.css";
+import "../styles/MainOrderPizza.css";
 
 const SIZES = [
   { label: "Küçük", value: "S" },
@@ -50,7 +50,7 @@ export default function MainOrderPizza({ form, setForm, errors }) {
       <div style={{ padding: 0 }}>
         <h2>Sipariş Formu</h2>
 
-        {/* BUTON YOK, SUBMIT YOK: Figma’da buton summary kartında */}
+        
         <Form>
           {/* İsim */}
           <FormGroup>
@@ -66,21 +66,23 @@ export default function MainOrderPizza({ form, setForm, errors }) {
             />
             {errors.name ? <FormFeedback>{errors.name}</FormFeedback> : null}
           </FormGroup>
+
           <div className="size-dough-row">
-            {/* Boyut */}
-            <FormGroup tag="fieldset" className="size-group">
+            {/* BOYUT */}
+            <div className="size-col">
               <Label className="field-title">Boyut Seç *</Label>
 
               <div className="size-options">
                 {SIZES.map((s) => (
                   <Label key={s.value} className="size-pill">
                     <Input
-                      data-cy={`size-${s.value}`}
                       className="size-input"
                       type="radio"
                       name="size"
                       value={s.value}
                       checked={form.size === s.value}
+                      // ✅ FIX: her option'a unique data-cy
+                      data-cy={`size-${s.value}`}
                       onChange={onChange}
                     />
                     <span className="size-pill-ui">{s.value}</span>
@@ -88,21 +90,22 @@ export default function MainOrderPizza({ form, setForm, errors }) {
                 ))}
               </div>
 
-              {errors.size ? (
-                <div className="field-error">{errors.size}</div>
-              ) : null}
-            </FormGroup>
+              {errors.size && <div className="field-error">{errors.size}</div>}
+            </div>
 
-            {/* Hamur (istersen figma için) */}
-            <FormGroup>
-              <Label for="dough">Hamur Seç</Label>
+            {/* HAMUR */}
+            <div className="dough-col">
+              <Label className="field-title">Hamur Seç</Label>
+
               <Input
-                id="dough"
-                name="dough"
                 type="select"
+                name="dough"
                 value={form.dough}
                 onChange={onChange}
                 invalid={Boolean(errors.dough)}
+                className="dough-select"
+                // ✅ Bonus: hamur select için stabil selector
+                data-cy="dough-select"
               >
                 <option value="">Hamur Kalınlığı</option>
                 <option value="İnce">İnce</option>
@@ -110,11 +113,14 @@ export default function MainOrderPizza({ form, setForm, errors }) {
                 <option value="Kalın">Kalın</option>
               </Input>
 
-              {errors.dough ? (
-                <FormFeedback>{errors.dough}</FormFeedback>
-              ) : null}
-            </FormGroup>
+              {errors.dough && (
+                <FormFeedback className="field-error">
+                  {errors.dough}
+                </FormFeedback>
+              )}
+            </div>
           </div>
+
           {/* Malzemeler */}
           <FormGroup className="toppings-section">
             <Label className="field-title">Ek Malzemeler</Label>
@@ -123,7 +129,7 @@ export default function MainOrderPizza({ form, setForm, errors }) {
             </div>
 
             <div className="toppings-grid">
-              {TOPPINGS.map((t) => {
+              {TOPPINGS.map((t, idx) => {
                 const checked = form.toppings.includes(t);
                 const shouldDisable = reachedLimit && !checked;
 
@@ -135,12 +141,13 @@ export default function MainOrderPizza({ form, setForm, errors }) {
                     }`}
                   >
                     <Input
-                      data-cy={`topping-${t}`}
                       className="topping-input"
                       type="checkbox"
                       checked={checked}
                       disabled={shouldDisable}
                       onChange={() => onToggleTopping(t)}
+                      // ✅ FIX: test için stabil selector (boşluk/özel karakter derdi yok)
+                      data-cy={`topping-${idx}`}
                     />
                     <span className="topping-box" aria-hidden="true" />
                     <span className="topping-text">{t}</span>
@@ -158,6 +165,7 @@ export default function MainOrderPizza({ form, setForm, errors }) {
           <FormGroup>
             <Label for="note">Sipariş Notu</Label>
             <Input
+              className="order-note"
               data-cy="note-input"
               id="note"
               name="note"

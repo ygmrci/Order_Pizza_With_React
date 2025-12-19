@@ -1,6 +1,6 @@
 import React from "react";
 // import "./OrderPizza.css";
-import "./OrderSummary.css";
+import "../styles/OrderSummary.css";
 
 export default function OrderSummary({
   quantity,
